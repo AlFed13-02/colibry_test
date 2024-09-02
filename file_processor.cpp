@@ -46,7 +46,7 @@ void FileProcessor::ModifyFile(const std::string& input, const std::string& outp
     int64_t word{};
     while (input_file.read(reinterpret_cast<char*>(&word), sizeof word)) {
         word = word ^ config_.value_for_modification;
-        output_file.write(reinterpret_cast<char*>(word), sizeof word);
+        output_file.write(reinterpret_cast<char*>(&word), sizeof word);
     }
 
     input_file.close();
